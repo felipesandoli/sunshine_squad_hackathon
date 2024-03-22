@@ -166,23 +166,15 @@ table {
 
 /* News */
 
-.news {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.news-page {
-  margin: 0 2rem;
-}
-
-
 .news-page .news-image {
-  width: 240px;
-  border: 2px solid rgb(20, 20, 20);
-  border-radius: 4px;
-  
+  width: 100%;
+  border-radius: 4px; 
+}
+
+.caption {
+  text-align: start;
+  color: #2b2d2f;
+  font-size: 0.8rem;
 }
 
 .article-title{
@@ -190,18 +182,20 @@ table {
   font-size: 1rem;
   color: rgb(20, 20, 20);
   max-width: 25rem;
-  
+  text-align: start;
 }
 
-.news-title {
-  visibility: hidden;
-  font-size: 0.8rem;
-  color: rgb(20, 20, 20);
-  max-width: 25rem;
-}
 /* Hover effect to show the news title */
-.article-title:hover + .news-title {
-  visibility: visible;
+.card:hover  .news-title {
+  display: block;
+}
+
+.card {
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 /* emoji */

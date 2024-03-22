@@ -11,3 +11,4 @@ myenv/
 .idea/
 env/
 .venv/
+flask_session/

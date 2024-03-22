@@ -1,62 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>testing the home page</h1>
 
-<!--Hero Image-->
-<section id="hero">
-    <div id="hero-image"></div>
-    <div id="hero-text">
-        <h1>Yours Daily Sunshine Scoop </h1>
+
+<!--Banner-->
+    <div class="page-title">
+
+        <h1>Happy Days</h1>
+        <h5>We Have some good news for you</h5>
     </div>
+    <!--Main-->
+    <div class="main">
+        <p class="page-description">
+            some good news for you
 
-</section>
+        </p>
 
-<div class="page-title">
+        <div class="container-fluid my-3">
+            <div class="row">
+                {% for item in result %}
+                <div class="col-12 col-md-4 col-xl-3 my-2">
+                    <div class="card shadow h-100 p-3 col-12">
+                        <a href="{{url_for('article_details',article_id=loop.index0)}}">
+                            <figure class="news-page m-auto">
+                                <img class="news-image" src="{{item.imageUrl}}" alt="{{item.title}}">
+                                <figcaption class="caption">{{item.source.domain}}</figcaption>
+                                <h2 class="article-title">{{item.title}}</h2>
+                            </figure>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 
-    <h1>Happy Days</h1>
-    <h5>We Have some good news for you</h5>
-</div>
+        <div class="container">
+            <p class="emoji-title">Choose your emoji and get insparation</p>
+            <div id ="big-emoji">😄</div>
 
+            <div class="small-emojis">
+                <span class="emoji" onclick="showPicture('🌞')">🌞</span>
+                <span class="emoji" onclick="showPicture('😄')">😄</span>
+                <span class="emoji" onclick="showPicture('🌈')">🌈</span>
+            </div>
+        </div>
 
-<div class="news">
-    {% for item in result %}
-    <a href="{{url_for('article_details',article_id=loop.index0)}}">
-        <figure class="news-page">
-            <img class="news-image" src="{{item.imageUrl}}" alt="{{item.title}}">
-            <h2 class="article-title">{{item.title}}</h2>
-            <p class="news-title">{{item.description}}</p>
-        </figure>
-    </a>
-    {% endfor %}
-</div>
-
-<div class="container">
-    <p class="emoji-title">Choose your emoji and get insparation</p>
-    <div id="big-emoji">😄</div>
-
-    <div class="small-emojis">
-        <span class="emoji" onclick="showPicture('🌞')">🌞</span>
-        <span class="emoji" onclick="showPicture('😄')">😄</span>
-        <span class="emoji" onclick="showPicture('🌈')">🌈</span>
     </div>
-</div>
-
-</div>
 <!--ToDo : // check if there is no results or error then show message -->
 
 
-{% set valid_page = page is not none %}
-{% if total_pages > 1 %}
-<div>
-    {% if valid_page and page > 1 %}
-    <a href="/{{ page - 1 }}">Previous</a>
+    {% set valid_page = page is not none %}
+    {% if total_pages > 1 %}
+        <div>
+            {% if valid_page and page > 1 %}
+                <a href="/{{ page - 1 }}">Previous</a>
+            {% endif %}
+
+            Page {{ page }} of {{total_pages}}
+
+            {% if valid_page and page < total_pages %}
+                <a href="/{{  page + 1 }}">Next</a>
+            {% endif %}
+        </div>
     {% endif %}
-
-    Page {{ page }} of {{total_pages}}
-
-    {% if valid_page and page < total_pages %} <a href="/{{  page + 1 }}">Next</a>
-        {% endif %}
-</div>
-{% endif %}
 
 
 {% endblock %}
