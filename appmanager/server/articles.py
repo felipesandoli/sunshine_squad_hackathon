@@ -11,9 +11,9 @@ def get_articles_by_positivity(articles):
         # positivity_measure = article.get('sentiment', []).get('positive', 0)
 
         if 'sentiment' in article:
-            print(article["sentiment"])
+            # print(article["sentiment"])
             positivity_measure = article['sentiment']['positive']
-            print(f"positivity is {positivity_measure} for article with title {article['title']}")
+            # print(f"positivity is {positivity_measure} for article with title {article['title']}")
             if positivity_measure > 0.5:
                 positive_articles.append(article)
 
@@ -39,13 +39,14 @@ def get_articles_from_api(page):
     params = {
         'from': '2024-02-20',
         'q': create_query(happy_keywords),  # Keywords for happy news
-        'sourceGroup': 'top10',
+        'topic': 'Good News',
         'language': 'en',
         'page': page,
-        'size': 500,
+        'size': 100,
         'apiKey': carlos_api_key
 
     }
+    print(create_query(happy_keywords))
 
     try:
         response = requests.get(api_url, params=params)
@@ -53,10 +54,11 @@ def get_articles_from_api(page):
         response_data = response.json()
         articles = response_data.get('articles', [])
         print("---------------------------------------------here")
-        print(f"data after  is ${articles} and data length is ${len(articles)}")
+        # print(f"data after  is ${articles} and data length is ${len(articles)}")
         # Taking the first 6 articles
         # data = articles
         data = get_articles_by_positivity(articles)
+
 
         # print(response)
         # print("---------------------------------------------here")
