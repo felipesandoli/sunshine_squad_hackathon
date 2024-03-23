@@ -24,7 +24,7 @@
                         <a href="{{url_for('article_details',article_id=loop.index0)}}">
                             <figure class="news-page m-auto">
                                 <img class="news-image" src="{{item.imageUrl}}" alt="{{item.title}}">
-                                <figcaption class="caption">{{item.source.domain}}</figcaption>
+                                <figcaption class="caption">{{item.authorsByline}} - {{ item.source.domain }}</figcaption>
                                 <h2 class="article-title">{{item.title}}</h2>
                             </figure>
                         </a>
