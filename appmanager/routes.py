@@ -7,12 +7,12 @@ from appmanager.server.constants import jokes, happy_emojis
 @app.route("/")
 @app.route("/<int:page_index>")
 def home(page_index=1):
-    # data = get_articles_from_api(page)
-    data = get_data_from_demo()
+    data = get_articles_from_api(page_index)
+    # data = get_data_from_demo()
     # stores all articles in session
     session['articles'] = data
     # Define pagination parameters
-    items_per_page = 6
+    items_per_page = 8
     num_pages = int(len(data) / items_per_page)
 
     # Calculate start and end indices for pagination

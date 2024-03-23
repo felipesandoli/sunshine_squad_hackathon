@@ -1,17 +1,19 @@
 happy_keywords = [
     "Happiness",
     "Joy",
-    "Celebration",
-    "Success",
     "Inspiration",
-    "Triumph",
     "Hope",
+    "Community",
     "Kindness",
     "Love",
     "Goodwill",
     "Generosity",
-    "Accomplishment",
     "Gratitude",
     "Positivity",
-    "Bright side"
+    "Bright side",
+    "Empathy",
+    "Peace",
+    "Unity",
+    "Volunteering",
+    "Care"
 ]
