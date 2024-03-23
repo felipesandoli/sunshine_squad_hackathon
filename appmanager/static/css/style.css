@@ -185,6 +185,37 @@ table {
   text-align: start;
 }
 
+/* News details page */
+
+.article-details {
+  margin: 15px 5%;
+}
+
+.article-image {
+  width: 100%;
+}
+
+.article-title-details{
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  color: rgb(20, 20, 20);
+  max-width: 75%;
+  text-align: start;
+}
+
+.article-description {
+  text-align: start;
+  color: #2b2d2f;
+  font-size: 1rem;
+}
+
+.article-summary {
+  text-align: start;
+  color: #000;
+  font-size: 1.2rem;
+  padding-bottom: 15px;
+}
+
 /* Hover effect to show the news title */
 .card:hover  .news-title {
   display: block;

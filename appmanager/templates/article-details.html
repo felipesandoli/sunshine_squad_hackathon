@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>{{ article.title }}</h1>
-    <p>
+<section class="article-details">
+    <h1 class="article-title-details">{{ article.title }}</h1>
+    <figure>
+        <img class="article-image" src="{{article.imageUrl}}" alt="{{article.title}}">
+        <figcaption class="caption">{{article.authorsByline}} - {{ article.source.domain }}</figcaption>
+    </figure>
+    <p class="article-description">
         {{ article.description }}
     </p>
+
+    <p class="article-summary">
+        {{ article.summary }}
+    </p>
+</section>
 {% endblock %}
