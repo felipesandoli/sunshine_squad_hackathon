@@ -2,6 +2,7 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
+flask_session/
 __pycache__/
 *.py[cod]
 node_modules/
